@@ -16,15 +16,15 @@ class CalculatorViewModel: ViewModel() {
 
     fun onAction(action: CalculatorAction) {
         when(action) {
-            is CalculatorAction.Number -> enterNumber(action.number)
-            is CalculatorAction.Decimal -> enterDecimal()
-            is CalculatorAction.Clear -> state = CalculatorState()
+            is CalculatorAction.Number    -> enterNumber(action.number)
+            is CalculatorAction.Decimal   -> enterDecimal()
             is CalculatorAction.Operation -> enterOperation(action.operation)
             is CalculatorAction.Calculate -> performCalculation()
-            is CalculatorAction.Delete -> performDelete()
+            is CalculatorAction.Delete    -> performDelete()
+            is CalculatorAction.Clear     -> state = CalculatorState()
         }
     }
-    
+
     private fun enterNumber(number: Int) {
         if(state.operation == null) {
             if(state.number1.length >= MAX_NUM_LENGTH) {
