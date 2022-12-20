@@ -6,6 +6,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
 class CalculatorViewModel: ViewModel() {
+
+    companion object {
+        private const val MAX_NUM_LENGTH = 8
+    }
+
     var state by mutableStateOf(CalculatorState())
         private set
 
@@ -19,10 +24,7 @@ class CalculatorViewModel: ViewModel() {
             is CalculatorAction.Delete -> performDelete()
         }
     }
-
-    companion object {
-        private const val MAX_NUM_LENGTH = 8
-    }
+    
     private fun enterNumber(number: Int) {
         if(state.operation == null) {
             if(state.number1.length >= MAX_NUM_LENGTH) {
