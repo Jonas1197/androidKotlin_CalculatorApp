@@ -5,8 +5,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -15,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.example.composecalculator.ui.theme.LightGray
 import com.example.composecalculator.ui.theme.Orange
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable fun Calculator(
     state: CalculatorState,
     modifier: Modifier = Modifier,
@@ -35,7 +41,11 @@ import com.example.composecalculator.ui.theme.Orange
                 textAlign = TextAlign.End,
                 modifier  = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 32.dp),
+                    .padding(vertical = 32.dp)
+                    .semantics {
+                        testTagsAsResourceId = true
+                        testTag = "calculationText"
+                    },
                 fontWeight = FontWeight.Light,
                 fontSize   = 80.sp,
                 color      = Color.White,
@@ -45,7 +55,7 @@ import com.example.composecalculator.ui.theme.Orange
 
             //region 1st Row
             Row(
-                modifier              = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
                 CalculatorButton(
@@ -53,7 +63,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(LightGray)
                         .aspectRatio(2f)
-                        .weight(2f),
+                        .weight(2f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "acButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Clear)
@@ -65,7 +79,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(LightGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "delButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Delete)
@@ -77,7 +95,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Orange)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "divideButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Operation(CalculatorOperation.Divide))
@@ -96,7 +118,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "7Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(7))
@@ -108,7 +134,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "8Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(8))
@@ -120,7 +150,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "9Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(9))
@@ -132,7 +166,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Orange)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "multiplyButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Operation(CalculatorOperation.Multiply))
@@ -143,7 +181,7 @@ import com.example.composecalculator.ui.theme.Orange
 
             //region 3rd Row
             Row(
-                modifier              = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
             ) {
                 CalculatorButton(
@@ -151,7 +189,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "4Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(4))
@@ -163,7 +205,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "5Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(5))
@@ -175,7 +221,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "6Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(6))
@@ -187,7 +237,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Orange)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "minusButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Operation(CalculatorOperation.Subtract))
@@ -206,7 +260,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "1Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(1))
@@ -218,7 +276,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "2Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(2))
@@ -230,7 +292,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "3Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(3))
@@ -242,7 +308,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Orange)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "plusButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Operation(CalculatorOperation.Add))
@@ -261,7 +331,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(2f)
-                        .weight(2f),
+                        .weight(2f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "0Button"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Number(70))
@@ -273,7 +347,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Color.DarkGray)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "decimalButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Decimal)
@@ -285,7 +363,11 @@ import com.example.composecalculator.ui.theme.Orange
                     modifier = Modifier
                         .background(Orange)
                         .aspectRatio(1f)
-                        .weight(1f),
+                        .weight(1f)
+                        .semantics {
+                            testTagsAsResourceId = true
+                            testTag = "equalsButton"
+                        },
 
                     onClick = {
                         onAction(CalculatorAction.Calculate)

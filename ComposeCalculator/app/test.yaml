@@ -1,0 +1,89 @@
+appId: com.example.composecalculator
+---
+
+- launchApp
+
+- copyTextFrom:
+    id: calculationText
+
+- assertTrue: ${maestro.copiedText == ""}
+
+- tapOn:
+    id: 7Button
+
+- tapOn:
+      id: plusButton
+
+- tapOn:
+      id: 3Button
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == "10"}
+
+- tapOn:
+      id: acButton
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == ""}
+
+- tapOn:
+      id: 2Button
+
+- tapOn:
+      id: multiplyButton
+
+- tapOn:
+      id: 5Button
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == "10"}
+
+- tapOn:
+      id: acButton
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == ""}
+
+- tapOn:
+      id: 1Button
+- tapOn:
+      id: 2Button
+- tapOn:
+      id: 3Button
+- tapOn:
+      id: 4Button
+- tapOn:
+      id: 5Button
+- tapOn:
+      id: 6Button
+- tapOn:
+      id: 7Button
+- tapOn:
+      id: 8Button
+- tapOn:
+      id: 9Button
+- tapOn:
+      id: decimalButton
+- tapOn:
+      id: 1Button
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == "123456789.1"}
+
+- tapOn:
+      id: acButton
+
+- copyTextFrom:
+      id: calculationText
+
+- assertTrue: ${maestro.copiedText == ""}
